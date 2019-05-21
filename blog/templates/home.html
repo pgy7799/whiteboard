@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div style="text-align:center">
+        <h1>방명록</h1><br>
+        <form action="{% url 'submit' %}">  
+            작성자 : <textarea cols="20" rows="1" name="name"></textarea>
+            <br>
+            <br>
+            메세지 : <textarea cols="30" rows="1" name="message"></textarea>
+            <br>
+            <br>
+            날짜 : <input type="date" name="date">
+            <br>
+            <br>
+            <input type="submit" value="글 남기기">
+            <br>
+            <br>
+        </form>
+
+        <table border="1" style="margin:auto;text-align:center;">
+            <th>작성자</th>
+            <th>메세지</th>
+            <th>날짜</th>
+            {% for kk in saves.all %}
+            <tr>
+                <td>{{kk.name}}</td>
+                <td>{{kk.message}}</td>
+                <td>{{kk.date}}</td>
+            </tr>
+            {%endfor%}
+        </table>
+        <br><br>
+    </div>     
+</body>
+</html>
