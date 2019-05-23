@@ -29,11 +29,11 @@
             <th>작성자</th>
             <th>메세지</th>
             <th>날짜</th>
-            {% for kk in saves.all %}
+            {% for blog in blogs.all %}
             <tr>
-                <td>{{kk.name}}</td>
-                <td>{{kk.message}}</td>
-                <td>{{kk.date}}</td>
+                <td>{{blog.name}}</td>
+                <td>{{blog.summary}}<a href="{%url 'detail' blog.id%}">...more</a></td>
+                <td>{{blog.date}}</td>
             </tr>
             {%endfor%}
         </table>
